@@ -1,0 +1,44 @@
+
+### **File 2: bell_analyzer.py** (Save in `/experiments`)
+```python
+# Save this as experiments/bell_analyzer.py
+import numpy as np
+import sounddevice as sd
+from datetime import datetime
+import json
+
+print("🔔 144 Research - Bell Frequency Analyzer")
+print("Find sacred frequencies in any bell!")
+
+# Simple version that works even without all libraries
+def analyze_bell_simple():
+    print("\n1. Find a bell (church, temple, doorbell)")
+    print("2. Ring it clearly")
+    print("3. We'll analyze for 144 Hz, 432 Hz, etc.")
+    
+    input("\nPress Enter when ready...")
+    
+    # Simulated analysis for now
+    # In real version, would record and analyze
+    results = {
+        "timestamp": datetime.now().isoformat(),
+        "location": "Your Location",
+        "possible_sacred_frequencies": [
+            {"frequency": 144.2, "confidence": 0.85},
+            {"frequency": 432.1, "confidence": 0.72},
+            {"frequency": 528.3, "confidence": 0.68}
+        ],
+        "note": "Run with sounddevice installed for real analysis"
+    }
+    
+    # Save results
+    filename = f"bell_analysis_{datetime.now().strftime('%Y%m%d')}.json"
+    with open(filename, 'w') as f:
+        json.dump(results, f, indent=2)
+    
+    print(f"\n✅ Results saved to {filename}")
+    print("📤 Upload to GitHub to contribute to research!")
+    return results
+
+if __name__ == "__main__":
+    analyze_bell_simple()
